@@ -35,11 +35,11 @@ def search_problem_statements(input_text, problem_statements, min_percentage=20,
     input_keywords = extract_keywords(input_text)
 
     matching_statements = []
-    start_index = (page - 1) * results_per_page
-    end_index = start_index + results_per_page
+    # start_index = (page - 1) * results_per_page
+    # end_index = start_index + results_per_page
 
 
-    for statement in problem_statements[start_index:end_index]:
+    for statement in problem_statements:
         statement_keywords = extract_keywords(statement)
 
         if any(keyword in statement_keywords for keyword in input_keywords):
