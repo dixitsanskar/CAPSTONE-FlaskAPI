@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 import re
 import csv
 from flask import g
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 def extract_keywords(text):
     stopwords = {'and', 'the', 'is', 'of', 'or', 'in', 'to', 'it', 'that', 'was', 'with', 'for', 'on', 'as', 'by', 'at', 'an', 'but', 'not', 'are', 'you', 'we', 'can', 'have', 'has', 'this'}
@@ -77,7 +79,7 @@ def search():
 
     if results:
         for i, statement in enumerate(results, start=1):
-            print(f"{i}. Title: {statement['title']}, Author: {statement['author']}, Problem Statement: {statement['problem_statement']}, Contributor: {statement['contributor']}")
+         print(f"{i}. Title: {statement['title']}, Author: {statement['author']}, Problem Statement: {statement['problem_statement']}, Contributor: {statement['contributor']}")
 
         response = {'status': 'success', 'results': results}
     else:
